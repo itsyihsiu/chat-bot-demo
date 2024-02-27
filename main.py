@@ -9,7 +9,8 @@ import chainlit as cl
 from utils import *
 
 # pip install --upgrade chainlit langchain google-generativeai langchain-google-genai
-# chainlit run main.py -w --port $(((RANDOM%999) + 1024))
+# pip install --upgrade chromadb langchain-community sentence-transformers
+# chainlit run main.py -w
 
 os.environ["GOOGLE_API_KEY"]="your_google_api_key_here"
 
