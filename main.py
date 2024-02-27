@@ -8,8 +8,9 @@ from langchain.schema.runnable import RunnablePassthrough
 import chainlit as cl
 from utils import *
 
-# pip install --upgrade chainlit langchain google-generativeai langchain-google-genai
-# pip install --upgrade chromadb langchain-community sentence-transformers
+# pip install chainlit langchain google-generativeai langchain-google-genai
+# pip install chromadb langchain-community sentence-transformers openai
+# python docs.py
 # chainlit run main.py -w
 
 os.environ["GOOGLE_API_KEY"]="your_google_api_key_here"
