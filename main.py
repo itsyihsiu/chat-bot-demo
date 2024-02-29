@@ -1,6 +1,7 @@
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.prompts import PromptTemplate
 from langchain.schema import StrOutputParser
@@ -41,6 +42,7 @@ Question: {question} [/INST] </s>
 
 rag_prompt = PromptTemplate.from_template(template)
 db = Chroma(persist_directory="./chromadb", embedding_function=HuggingFaceEmbeddings())
+# db = Chroma(persist_directory="./chromadb", embedding_function=GoogleGenerativeAIEmbeddings(model="models/embedding-001"))
 retriever = db.as_retriever(max_tokens_limit=512, search_kwargs={"k": 2})
 rag_chain = {"context": retriever | format_docs, "question": RunnablePassthrough()} | rag_prompt | llm | StrOutputParser()
 
