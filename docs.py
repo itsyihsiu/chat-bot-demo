@@ -1,8 +1,8 @@
 import os
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain_community.vectorstores import Chroma
-# from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from chromadb.errors import InvalidDimensionException
 from utils import *
 
@@ -17,8 +17,8 @@ documents = []
 for loader in loaders:
     documents.extend(loader.load())
 
-# embedding = HuggingFaceEmbeddings()
-embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embedding = HuggingFaceEmbeddings()
+# embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 Chroma().delete_collection()
 
